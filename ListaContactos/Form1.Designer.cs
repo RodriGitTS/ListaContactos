@@ -218,6 +218,7 @@
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(23, 22);
             this.btnBorrar.Text = "toolStripButton2";
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // statusStrip1
             // 

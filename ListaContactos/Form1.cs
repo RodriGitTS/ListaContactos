@@ -56,5 +56,21 @@ namespace ListaContactos
             datePkFechaNac.Value=contactoSeleccionado.getFechaNac();
 
         }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            if (lstContactos.SelectedItem == null) { 
+            MessageBox.Show("No has seleccionado ningun contacto");
+            }
+            else
+            {
+             DialogResult dia= MessageBox.Show("¿Borrar contacto?", "Confirmación borrado", MessageBoxButtons.YesNoCancel);
+                if (dia==DialogResult.Yes)
+                {
+                    contactos.Remove(lstContactos.SelectedItem);
+                    statusStrip1.Text = "Contacto borrado";
+                } 
+            }
+        }
     }
 }
