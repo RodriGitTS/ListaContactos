@@ -187,6 +187,7 @@
             this.ToolStripSalir.Name = "ToolStripSalir";
             this.ToolStripSalir.Size = new System.Drawing.Size(43, 20);
             this.ToolStripSalir.Text = "Salir";
+            this.ToolStripSalir.Click += new System.EventHandler(this.ToolStripSalir_Click);
             // 
             // toolStrip1
             // 

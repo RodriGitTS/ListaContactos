@@ -72,5 +72,15 @@ namespace ListaContactos
                 } 
             }
         }
+
+        private void ToolStripSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult dia = MessageBox.Show("¿Borrar contacto?", "Confirmación borrado", MessageBoxButtons.YesNoCancel);
+            if (dia == DialogResult.Yes)
+            {
+                Close();
+            }
+           
+        }
     }
 }
