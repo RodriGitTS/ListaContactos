@@ -17,24 +17,32 @@ namespace ListaContactos
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
-    
-       
+
+
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
-            
-            String nombre=txtNombre.Text;
-            String apellidos=txtApellidos.Text;
-            String tlf=txtTlf.Text;
-            String correo=txtCorreo.Text;
+            String nombre = txtNombre.Text;
+            String apellidos = txtApellidos.Text;
+            String tlf = msktxtTlf.Text;
+            String correo = txtCorreo.Text;
             DateTime fecha = datePkFechaNac.Value;
 
             contactos.Add(new Contacto(nombre, apellidos, tlf, correo, fecha));
             toolStripStatusLabel1.Text = "Contacto añadido";
+        }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            lstContactos.Items.Clear();
+            foreach (Contacto contacto in contactos)
+            {
+                lstContactos.Items.Add(contacto);
+            }
         }
     }
 }
