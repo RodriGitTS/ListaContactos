@@ -68,19 +68,24 @@ namespace ListaContactos
                 if (dia==DialogResult.Yes)
                 {
                     contactos.Remove(lstContactos.SelectedItem);
-                    statusStrip1.Text = "Contacto borrado";
+                    toolStripStatusLabel1.Text = "Contacto borrado";
                 } 
             }
         }
 
         private void ToolStripSalir_Click(object sender, EventArgs e)
         {
-            DialogResult dia = MessageBox.Show("¿Borrar contacto?", "Confirmación borrado", MessageBoxButtons.YesNoCancel);
+            DialogResult dia = MessageBox.Show("¿Salir de la app?", "", MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);
             if (dia == DialogResult.Yes)
             {
                 Close();
             }
            
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

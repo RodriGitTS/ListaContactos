@@ -48,11 +48,11 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAdd = new System.Windows.Forms.ToolStripButton();
             this.btnBorrar = new System.Windows.Forms.ToolStripButton();
+            this.btnCargar = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.epRegistro = new System.Windows.Forms.ErrorProvider(this.components);
             this.lstContactos = new System.Windows.Forms.ListBox();
-            this.btnCargar = new System.Windows.Forms.ToolStripButton();
             this.msktxtTlf = new System.Windows.Forms.MaskedTextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -172,13 +172,14 @@
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // cargarToolStripMenuItem
             // 
             this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
-            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cargarToolStripMenuItem.Text = "Cargar";
             // 
             // ToolStripSalir
@@ -221,6 +222,16 @@
             this.btnBorrar.Text = "toolStripButton2";
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
+            // btnCargar
+            // 
+            this.btnCargar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnCargar.Image = ((System.Drawing.Image)(resources.GetObject("btnCargar.Image")));
+            this.btnCargar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(23, 22);
+            this.btnCargar.Text = "toolStripButton1";
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -250,16 +261,6 @@
             this.lstContactos.Size = new System.Drawing.Size(395, 238);
             this.lstContactos.TabIndex = 16;
             this.lstContactos.SelectedIndexChanged += new System.EventHandler(this.lstContactos_SelectedIndexChanged);
-            // 
-            // btnCargar
-            // 
-            this.btnCargar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnCargar.Image = ((System.Drawing.Image)(resources.GetObject("btnCargar.Image")));
-            this.btnCargar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(23, 22);
-            this.btnCargar.Text = "toolStripButton1";
-            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // msktxtTlf
             // 
