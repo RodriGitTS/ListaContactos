@@ -13,23 +13,28 @@ namespace ListaContactos
 {
     public partial class Form1 : Form
     {
+        ArrayList contactos = new ArrayList();
         public Form1()
         {
             InitializeComponent();
-            ArrayList contactos = new ArrayList();
+            
         }
+
+    
+       
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
-            ErrorProvider frm = new ErrorProvider();
-
+            
             String nombre=txtNombre.Text;
             String apellidos=txtApellidos.Text;
             String tlf=txtTlf.Text;
             String correo=txtCorreo.Text;
             DateTime fecha = datePkFechaNac.Value;
-           
+
+            contactos.Add(new Contacto(nombre, apellidos, tlf, correo, fecha));
+            toolStripStatusLabel1.Text = "Contacto añadido";
         }
     }
 }

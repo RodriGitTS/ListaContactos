@@ -35,7 +35,6 @@
             this.txtTlf = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.txtContactos = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,15 +43,16 @@
             this.datePkFechaNac = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.epRegistro = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lstContactos = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -97,14 +97,6 @@
             this.txtCorreo.Size = new System.Drawing.Size(100, 20);
             this.txtCorreo.TabIndex = 4;
             // 
-            // txtContactos
-            // 
-            this.txtContactos.Location = new System.Drawing.Point(376, 108);
-            this.txtContactos.Multiline = true;
-            this.txtContactos.Name = "txtContactos";
-            this.txtContactos.Size = new System.Drawing.Size(357, 196);
-            this.txtContactos.TabIndex = 5;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -139,7 +131,7 @@
             // 
             this.lblContactos.AutoSize = true;
             this.lblContactos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContactos.Location = new System.Drawing.Point(373, 81);
+            this.lblContactos.Location = new System.Drawing.Point(373, 71);
             this.lblContactos.Name = "lblContactos";
             this.lblContactos.Size = new System.Drawing.Size(112, 13);
             this.lblContactos.TabIndex = 9;
@@ -183,24 +175,24 @@
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
+            // guardarToolStripMenuItem
+            // 
+            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.guardarToolStripMenuItem.Text = "Guardar";
+            // 
+            // cargarToolStripMenuItem
+            // 
+            this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
+            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.cargarToolStripMenuItem.Text = "Cargar";
+            // 
             // ToolStripSalir
             // 
             this.ToolStripSalir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToolStripSalir.Name = "ToolStripSalir";
             this.ToolStripSalir.Size = new System.Drawing.Size(43, 20);
             this.ToolStripSalir.Text = "Salir";
-            // 
-            // guardarToolStripMenuItem
-            // 
-            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.guardarToolStripMenuItem.Text = "Guardar";
-            // 
-            // cargarToolStripMenuItem
-            // 
-            this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
-            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cargarToolStripMenuItem.Text = "Cargar";
             // 
             // toolStrip1
             // 
@@ -253,11 +245,20 @@
             this.epRegistro.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
             this.epRegistro.ContainerControl = this;
             // 
+            // lstContactos
+            // 
+            this.lstContactos.FormattingEnabled = true;
+            this.lstContactos.Location = new System.Drawing.Point(376, 87);
+            this.lstContactos.Name = "lstContactos";
+            this.lstContactos.Size = new System.Drawing.Size(395, 238);
+            this.lstContactos.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 407);
+            this.Controls.Add(this.lstContactos);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.datePkFechaNac);
@@ -266,7 +267,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtContactos);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTlf);
@@ -295,7 +295,6 @@
         private System.Windows.Forms.TextBox txtTlf;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.TextBox txtContactos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -313,6 +312,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         protected System.Windows.Forms.ErrorProvider epRegistro;
+        private System.Windows.Forms.ListBox lstContactos;
     }
 }
 
