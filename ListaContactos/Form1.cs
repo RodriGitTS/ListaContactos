@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,20 @@ namespace ListaContactos
         public Form1()
         {
             InitializeComponent();
+            ArrayList contactos = new ArrayList();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+            ErrorProvider frm = new ErrorProvider();
+
+            String nombre=txtNombre.Text;
+            String apellidos=txtApellidos.Text;
+            String tlf=txtTlf.Text;
+            String correo=txtCorreo.Text;
+            DateTime fecha = datePkFechaNac.Value;
+           
         }
     }
 }
