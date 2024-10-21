@@ -25,5 +25,26 @@ namespace ListaContactos
         {
             return nombre+ " "+ apellido +"-"+correo+"-"+telefono;
         }
+
+        public String getNombre()
+        {
+            return this.nombre;
+        }
+        public String getApellido()
+        {
+            return this.apellido;
+        }
+        public String getCorreo()
+        {
+            return this.correo;   
+        }
+        public String getTlf()
+        {
+            return this.telefono;
+        }
+        public DateTime getFechaNac()
+        {
+            return fechaNac;
+        }
     }
 }

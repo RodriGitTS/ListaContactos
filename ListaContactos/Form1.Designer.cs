@@ -247,6 +247,7 @@
             this.lstContactos.Name = "lstContactos";
             this.lstContactos.Size = new System.Drawing.Size(395, 238);
             this.lstContactos.TabIndex = 16;
+            this.lstContactos.SelectedIndexChanged += new System.EventHandler(this.lstContactos_SelectedIndexChanged);
             // 
             // btnCargar
             // 

@@ -44,5 +44,17 @@ namespace ListaContactos
                 lstContactos.Items.Add(contacto);
             }
         }
+
+        private void lstContactos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Contacto contactoSeleccionado = lstContactos.SelectedItem as Contacto;
+
+            txtNombre.Text = contactoSeleccionado.getNombre();
+            txtApellidos.Text = contactoSeleccionado.getApellido();
+            txtCorreo.Text = contactoSeleccionado.getCorreo();
+            msktxtTlf.Text = contactoSeleccionado.getTlf();
+            datePkFechaNac.Value=contactoSeleccionado.getFechaNac();
+
+        }
     }
 }
