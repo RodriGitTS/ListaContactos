@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,7 +86,69 @@ namespace ListaContactos
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            string path = "contactos.txt";
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                foreach(Contacto contacto in contactos)
+                {
+                    writer.WriteLine(contacto.getNombre() + ";" + contacto.getApellido() + ";" + 
+                        contacto.getCorreo() + ";" + contacto.getTlf()+";"+datePkFechaNac.Value.ToString("dd/MM/yyyy")+"\n");
+                }
+            }
+            toolStripStatusLabel1.Text = "Contactos guardado en contacto en "+ path;
+        }
+
+        private void cargarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            contactos = new ArrayList();
+            string path = "contactos.txt";
+            string linea = "";
+            using (StreamReader lecutra =new StreamReader(path))
+            {
+               
+                while (linea != null)
+                {
+                    linea = lecutra.ReadLine();
+                    if (linea == null) break;
+                    String[] c = new String[5];
+                    c = linea.Split(';');
+
+                    if (c.Length == 5)
+                    {
+                        String nombre = c[0];
+                        String apellidos = c[1];
+                        String correo = c[2];
+                        String tlf = c[3];
+                        String fechaS = c[4];
+                        DateTime fecha = DateTime.ParseExact(c[4], "dd/MM/yyyy", null);
+
+                        contactos.Add(new Contacto(nombre, apellidos, tlf, correo, fecha));
+                        
+                    }
+                    toolStripStatusLabel1.Text = "Lista de contactos cargada";
+                }
+            }
+        }
+
+        private void formatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+            fontDialog.ShowDialog();
+
+            if (DialogResult == DialogResult.OK) {
+                Font = fontDialog.Font;
+            }
+        }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog cuadro=new ColorDialog();
+            cuadro.ShowDialog();
+            if (DialogResult == DialogResult.OK) {
+                BackColor = cuadro.Color;
+
+            }
+
         }
     }
 }
