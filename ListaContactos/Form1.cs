@@ -17,7 +17,8 @@ namespace ListaContactos
     {
         ArrayList contactos = new ArrayList();
         private const String EXPRESION_NOM_AP = @"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s'-]+$";
-        private const String EXPRESION_CORREO = @"^[\\w\\.-]+@[A-Za-z0-9\\.-]+\\.[A-Za-z]{2,}$";
+        private const String EXPRESION_CORREO = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
         public Form1()
         {
             InitializeComponent();
@@ -42,7 +43,8 @@ namespace ListaContactos
                 toolStripStatusLabel1.Text = "Contacto añadido";
 
             }
-            else MessageBox.Show("Error en los datos", "Alguno de los campos no son correctos");
+
+            else MessageBox.Show("Error en los datos", "Alguno de los campos no son correctos",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -76,7 +78,7 @@ namespace ListaContactos
             }
             else
             {
-             DialogResult dia= MessageBox.Show("¿Borrar contacto?", "Confirmación borrado", MessageBoxButtons.YesNoCancel);
+             DialogResult dia= MessageBox.Show("¿Borrar contacto?", "Confirmación borrado", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
                 if (dia==DialogResult.Yes)
                 {
                     contactos.Remove(lstContactos.SelectedItem);
@@ -87,7 +89,7 @@ namespace ListaContactos
 
         private void ToolStripSalir_Click(object sender, EventArgs e)
         {
-            DialogResult dia = MessageBox.Show("¿Salir de la app?", "", MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);
+            DialogResult dia = MessageBox.Show("¿Salir de la app?", "", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dia == DialogResult.Yes)
             {
                 Close();
@@ -230,7 +232,7 @@ namespace ListaContactos
                if(contacto.getNombre()==txtNombre.Text  && contacto.getApellido() == txtApellidos.Text)
                 {
                     datosCorrectos = false;
-                    MessageBox.Show("Este contacto ya existe","Error al guardar contacto");
+                    MessageBox.Show("Este contacto ya existe","Error al guardar contacto",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
             
