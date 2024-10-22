@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
-            this.txtTlf = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.txtContactos = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,14 +42,25 @@
             this.datePkFechaNac = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.btnAdd = new System.Windows.Forms.ToolStripButton();
+            this.btnBorrar = new System.Windows.Forms.ToolStripButton();
+            this.btnCargar = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.epRegistro = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lstContactos = new System.Windows.Forms.ListBox();
+            this.msktxtTlf = new System.Windows.Forms.MaskedTextBox();
+            this.diseñoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epRegistro)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -66,13 +76,6 @@
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(100, 20);
             this.txtApellidos.TabIndex = 1;
-            // 
-            // txtTlf
-            // 
-            this.txtTlf.Location = new System.Drawing.Point(144, 190);
-            this.txtTlf.Name = "txtTlf";
-            this.txtTlf.Size = new System.Drawing.Size(100, 20);
-            this.txtTlf.TabIndex = 2;
             // 
             // label1
             // 
@@ -90,14 +93,6 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(100, 20);
             this.txtCorreo.TabIndex = 4;
-            // 
-            // txtContactos
-            // 
-            this.txtContactos.Location = new System.Drawing.Point(376, 108);
-            this.txtContactos.Multiline = true;
-            this.txtContactos.Name = "txtContactos";
-            this.txtContactos.Size = new System.Drawing.Size(357, 196);
-            this.txtContactos.TabIndex = 5;
             // 
             // label2
             // 
@@ -133,7 +128,7 @@
             // 
             this.lblContactos.AutoSize = true;
             this.lblContactos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContactos.Location = new System.Drawing.Point(373, 81);
+            this.lblContactos.Location = new System.Drawing.Point(373, 71);
             this.lblContactos.Name = "lblContactos";
             this.lblContactos.Size = new System.Drawing.Size(112, 13);
             this.lblContactos.TabIndex = 9;
@@ -151,7 +146,7 @@
             // 
             // datePkFechaNac
             // 
-            this.datePkFechaNac.Location = new System.Drawing.Point(144, 305);
+            this.datePkFechaNac.Location = new System.Drawing.Point(147, 305);
             this.datePkFechaNac.Name = "datePkFechaNac";
             this.datePkFechaNac.Size = new System.Drawing.Size(200, 20);
             this.datePkFechaNac.TabIndex = 12;
@@ -163,7 +158,7 @@
             this.ToolStripSalir});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(817, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -171,11 +166,26 @@
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.guardarToolStripMenuItem,
-            this.cargarToolStripMenuItem});
+            this.cargarToolStripMenuItem,
+            this.diseñoToolStripMenuItem});
             this.archivoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // guardarToolStripMenuItem
+            // 
+            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarToolStripMenuItem.Text = "Guardar";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
+            // 
+            // cargarToolStripMenuItem
+            // 
+            this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
+            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cargarToolStripMenuItem.Text = "Cargar";
+            this.cargarToolStripMenuItem.Click += new System.EventHandler(this.cargarToolStripMenuItem_Click);
             // 
             // ToolStripSalir
             // 
@@ -183,53 +193,119 @@
             this.ToolStripSalir.Name = "ToolStripSalir";
             this.ToolStripSalir.Size = new System.Drawing.Size(43, 20);
             this.ToolStripSalir.Text = "Salir";
-            // 
-            // guardarToolStripMenuItem
-            // 
-            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.guardarToolStripMenuItem.Text = "Guardar";
-            // 
-            // cargarToolStripMenuItem
-            // 
-            this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
-            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cargarToolStripMenuItem.Text = "Cargar";
+            this.ToolStripSalir.Click += new System.EventHandler(this.ToolStripSalir_Click);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.btnAdd,
+            this.btnBorrar,
+            this.btnCargar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(817, 25);
             this.toolStrip1.TabIndex = 14;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // btnAdd
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.btnAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(23, 22);
+            this.btnAdd.Text = "Añadir contacto";
+            this.btnAdd.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripButton2
+            // btnBorrar
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.btnBorrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btnBorrar.Image")));
+            this.btnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(23, 22);
+            this.btnBorrar.Text = "Borrar contacto";
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnCargar
+            // 
+            this.btnCargar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnCargar.Image = ((System.Drawing.Image)(resources.GetObject("btnCargar.Image")));
+            this.btnCargar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(23, 22);
+            this.btnCargar.Text = "Mostrar Lista";
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 385);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(817, 22);
+            this.statusStrip1.TabIndex = 15;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // epRegistro
+            // 
+            this.epRegistro.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.epRegistro.ContainerControl = this;
+            // 
+            // lstContactos
+            // 
+            this.lstContactos.FormattingEnabled = true;
+            this.lstContactos.Location = new System.Drawing.Point(376, 87);
+            this.lstContactos.Name = "lstContactos";
+            this.lstContactos.Size = new System.Drawing.Size(395, 238);
+            this.lstContactos.TabIndex = 16;
+            this.lstContactos.SelectedIndexChanged += new System.EventHandler(this.lstContactos_SelectedIndexChanged);
+            // 
+            // msktxtTlf
+            // 
+            this.msktxtTlf.Location = new System.Drawing.Point(144, 194);
+            this.msktxtTlf.Mask = "000-000-0000";
+            this.msktxtTlf.Name = "msktxtTlf";
+            this.msktxtTlf.Size = new System.Drawing.Size(100, 20);
+            this.msktxtTlf.TabIndex = 17;
+            // 
+            // diseñoToolStripMenuItem
+            // 
+            this.diseñoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.formatoToolStripMenuItem,
+            this.colorToolStripMenuItem});
+            this.diseñoToolStripMenuItem.Name = "diseñoToolStripMenuItem";
+            this.diseñoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.diseñoToolStripMenuItem.Text = "Estilo";
+            // 
+            // formatoToolStripMenuItem
+            // 
+            this.formatoToolStripMenuItem.Name = "formatoToolStripMenuItem";
+            this.formatoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.formatoToolStripMenuItem.Text = "Formato";
+            this.formatoToolStripMenuItem.Click += new System.EventHandler(this.formatoToolStripMenuItem_Click);
+            // 
+            // colorToolStripMenuItem
+            // 
+            this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorToolStripMenuItem.Text = "Color";
+            this.colorToolStripMenuItem.Click += new System.EventHandler(this.colorToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(817, 407);
+            this.Controls.Add(this.msktxtTlf);
+            this.Controls.Add(this.lstContactos);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.datePkFechaNac);
             this.Controls.Add(this.label6);
@@ -237,20 +313,21 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtContactos);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTlf);
             this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Gestor de Contactos";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epRegistro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,10 +337,8 @@
 
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellidos;
-        private System.Windows.Forms.TextBox txtTlf;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.TextBox txtContactos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -276,8 +351,17 @@
         private System.Windows.Forms.ToolStripMenuItem cargarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripSalir;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton btnAdd;
+        private System.Windows.Forms.ToolStripButton btnBorrar;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        protected System.Windows.Forms.ErrorProvider epRegistro;
+        private System.Windows.Forms.ListBox lstContactos;
+        private System.Windows.Forms.ToolStripButton btnCargar;
+        private System.Windows.Forms.MaskedTextBox msktxtTlf;
+        private System.Windows.Forms.ToolStripMenuItem diseñoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formatoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
     }
 }
 
