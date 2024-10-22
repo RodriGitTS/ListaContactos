@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,10 +16,12 @@ namespace ListaContactos
     public partial class Form1 : Form
     {
         ArrayList contactos = new ArrayList();
+        private const String EXPRESION_NOM_AP = @"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s'-]+$";
+        private const String EXPRESION_CORREO = @"^[\\w\\.-]+@[A-Za-z0-9\\.-]+\\.[A-Za-z]{2,}$";
         public Form1()
         {
             InitializeComponent();
-
+            toolStripStatusLabel1.Text="";
         }
 
 
@@ -163,19 +166,34 @@ namespace ListaContactos
         }
         private Boolean comprobarDatos()
         {
+            Regex regexNomAp = new Regex(EXPRESION_NOM_AP);
+            Regex regexCorreo = new Regex(EXPRESION_CORREO);
+
             epRegistro.Clear();
             Boolean datosCorrectos=true;
             DateTime fechaNacimiento;
+
+
             if (String.IsNullOrEmpty(txtNombre.Text))
             {
                 datosCorrectos = false;
                 epRegistro.SetError(txtNombre,"Campo vacio");
+            }else if (!regexNomAp.IsMatch(txtNombre.Text))
+            {
+                datosCorrectos = false;
+                epRegistro.SetError(txtNombre, "Datos incorrectos");
             }
+
             if (String.IsNullOrEmpty(txtApellidos.Text))
             {
 
                 datosCorrectos = false;
                 epRegistro.SetError(txtApellidos, "Campo vacio");
+            }
+            else if (!regexNomAp.IsMatch(txtApellidos.Text))
+            {
+                datosCorrectos = false;
+                epRegistro.SetError(txtApellidos, "Datos incorrectos");
             }
 
             if (String.IsNullOrEmpty(msktxtTlf.Text)||msktxtTlf.Text== "   -   -")
@@ -192,11 +210,20 @@ namespace ListaContactos
 
                 datosCorrectos = false;
                 epRegistro.SetError(txtCorreo, "Campo vacio");
+            }else if (!regexCorreo.IsMatch(txtCorreo.Text))
+            {
+                datosCorrectos = false;
+                epRegistro.SetError(txtCorreo, "Campo incorrecto");
             }
             if (!DateTime.TryParse(datePkFechaNac.Text, out fechaNacimiento)||fechaNacimiento==DateTime.Today)
             {
                 datosCorrectos = false;
                 epRegistro.SetError(datePkFechaNac, "Campo vacio");
+            }else if (fechaNacimiento > DateTime.Today)
+            {
+
+                datosCorrectos = false;
+                epRegistro.SetError(datePkFechaNac, "Fecha incorrecta");
             }
             foreach (Contacto contacto in contactos) { 
             
@@ -204,7 +231,6 @@ namespace ListaContactos
                 {
                     datosCorrectos = false;
                     MessageBox.Show("Este contacto ya existe","Error al guardar contacto");
-            
                 }
             }
             
