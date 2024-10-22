@@ -54,6 +54,9 @@
             this.epRegistro = new System.Windows.Forms.ErrorProvider(this.components);
             this.lstContactos = new System.Windows.Forms.ListBox();
             this.msktxtTlf = new System.Windows.Forms.MaskedTextBox();
+            this.diseñoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -163,7 +166,8 @@
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.guardarToolStripMenuItem,
-            this.cargarToolStripMenuItem});
+            this.cargarToolStripMenuItem,
+            this.diseñoToolStripMenuItem});
             this.archivoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
@@ -210,7 +214,7 @@
             this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(23, 22);
-            this.btnAdd.Text = "toolStripButton1";
+            this.btnAdd.Text = "Añadir contacto";
             this.btnAdd.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // btnBorrar
@@ -220,7 +224,7 @@
             this.btnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(23, 22);
-            this.btnBorrar.Text = "toolStripButton2";
+            this.btnBorrar.Text = "Borrar contacto";
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnCargar
@@ -230,7 +234,7 @@
             this.btnCargar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(23, 22);
-            this.btnCargar.Text = "toolStripButton1";
+            this.btnCargar.Text = "Mostrar Lista";
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // statusStrip1
@@ -270,6 +274,29 @@
             this.msktxtTlf.Name = "msktxtTlf";
             this.msktxtTlf.Size = new System.Drawing.Size(100, 20);
             this.msktxtTlf.TabIndex = 17;
+            // 
+            // diseñoToolStripMenuItem
+            // 
+            this.diseñoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.formatoToolStripMenuItem,
+            this.colorToolStripMenuItem});
+            this.diseñoToolStripMenuItem.Name = "diseñoToolStripMenuItem";
+            this.diseñoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.diseñoToolStripMenuItem.Text = "Estilo";
+            // 
+            // formatoToolStripMenuItem
+            // 
+            this.formatoToolStripMenuItem.Name = "formatoToolStripMenuItem";
+            this.formatoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.formatoToolStripMenuItem.Text = "Formato";
+            this.formatoToolStripMenuItem.Click += new System.EventHandler(this.formatoToolStripMenuItem_Click);
+            // 
+            // colorToolStripMenuItem
+            // 
+            this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorToolStripMenuItem.Text = "Color";
+            this.colorToolStripMenuItem.Click += new System.EventHandler(this.colorToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -332,6 +359,9 @@
         private System.Windows.Forms.ListBox lstContactos;
         private System.Windows.Forms.ToolStripButton btnCargar;
         private System.Windows.Forms.MaskedTextBox msktxtTlf;
+        private System.Windows.Forms.ToolStripMenuItem diseñoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formatoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
     }
 }
 

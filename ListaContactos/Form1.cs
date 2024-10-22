@@ -123,9 +123,32 @@ namespace ListaContactos
                         DateTime fecha = DateTime.ParseExact(c[4], "dd/MM/yyyy", null);
 
                         contactos.Add(new Contacto(nombre, apellidos, tlf, correo, fecha));
+                        
                     }
+                    toolStripStatusLabel1.Text = "Lista de contactos cargada";
                 }
             }
+        }
+
+        private void formatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+            fontDialog.ShowDialog();
+
+            if (DialogResult == DialogResult.OK) {
+                Font = fontDialog.Font;
+            }
+        }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog cuadro=new ColorDialog();
+            cuadro.ShowDialog();
+            if (DialogResult == DialogResult.OK) {
+                BackColor = cuadro.Color;
+
+            }
+
         }
     }
 }
