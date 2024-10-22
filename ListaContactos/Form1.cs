@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,7 +86,16 @@ namespace ListaContactos
 
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            string path = "contactos.txt";
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                foreach(Contacto contacto in contactos)
+                {
+                    writer.WriteLine(contacto.getNombre() + ";" + contacto.getApellido() + ";" + 
+                        contacto.getCorreo() + ";" + contacto.getTlf()+"\n");
+                }
+            }
+            toolStripStatusLabel1.Text = "Contactos guardado en contacto en "+ path;
         }
     }
 }
